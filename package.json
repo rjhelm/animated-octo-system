@@ -1,0 +1,30 @@
+{
+  "name": "animated-octo-system",
+  "version": "1.0.0",
+  "description": "Amazon like e-commerce app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjhelm/animated-octo-system.git"
+  },
+  "author": "Ryan Helm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjhelm/animated-octo-system/issues"
+  },
+  "homepage": "https://github.com/rjhelm/animated-octo-system#readme",
+  "dependencies": {
+    "aws-sdk": "^2.963.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "eslint-plugin-react": "^7.24.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.5",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0"
+  }
+}
