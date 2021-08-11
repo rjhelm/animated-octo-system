@@ -89,4 +89,5 @@ const deleteOrder = (orderId) => async (dispatch, getState) => {
         dispatch({ type: ORDER_DELETE_FAIL, payload: error.message });
     }
 }
+
 export { createOrder, detailsOrder, payOrder, listMyOrders, listOrders, deleteOrder };
