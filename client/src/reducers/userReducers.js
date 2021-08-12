@@ -1,92 +1,43 @@
-import {
-    PRODUCT_LIST_REQUEST,
-    PRODUCT_LIST_SUCCESS,
-    PRODUCT_LIST_FAIL,
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
-    PRODUCT_SAVE_REQUEST,
-    PRODUCT_SAVE_SUCCESS,
-    PRODUCT_SAVE_FAIL,
-    PRODUCT_DELETE_REQUEST,
-    PRODUCT_DELETE_SUCCESS,
-    PRODUCT_DELETE_FAIL,
-    PRODUCT_REVIEW_SAVE_SUCCESS,
-    PRODUCT_REVIEW_SAVE_REQUEST,
-    PRODUCT_REVIEW_SAVE_FAIL,
-    PRODUCT_REVIEW_SAVE_RESET,
-} from '../constants/productConstants';
+import { USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNIN_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL, USER_LOGOUT, USER_UPDATE_REQUEST, USER_UPDATE_SUCCESS, USER_UPDATE_FAIL } from "../constants/userConstants";
 
-const productListReducer = (state = { products: [] }, action) => {
+const userSigninReducer = (state = {}, action) => {
     switch (action.type) {
-        case PRODUCT_LIST_REQUEST:
-            return { loading: true, products: [] };
-        case PRODUCT_LIST_SUCCESS:
-            return { loading: false, products: action.payload };
-        case PRODUCT_LIST_FAIL:
-            return { loading: false, error: action.payload };
-        default:
-            return state;
-    }
-}
-
-const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
-    switch (action.type) {
-        case PRODUCT_DETAILS_REQUEST:
+        case USER_SIGNIN_REQUEST:
             return { loading: true };
-        case PRODUCT_DETAILS_SUCCESS:
-            return { loading: false, product: action.payload };
-        case PRODUCT_DETAILS_FAIL:
+        case USER_SIGNIN_SUCCESS:
+            return { loading: false, userInfo: action.payload };
+        case USER_SIGNIN_FAIL:
             return { loading: false, error: action.payload };
-        default:
-            return state;
-    }
-}
-
-const productDeleteReducer = (state = { product: {} }, action) => {
-    switch (action.type) {
-        case PRODUCT_DELETE_REQUEST:
-            return { loading: true };
-        case PRODUCT_DELETE_SUCCESS:
-            return { loading: false, product: action.payload, success: true };
-        case PRODUCT_DELETE_FAIL:
-            return { loading: false, error: action.payload };
-        default:
-            return state;
-    }
-}
-
-const productSaveReducer = (state = { product: {} }, action) => {
-    switch (action.type) {
-        case PRODUCT_SAVE_REQUEST:
-            return { loading: true };
-        case PRODUCT_SAVE_SUCCESS:
-            return { loading: false, success: true, product: action.payload };
-        case PRODUCT_SAVE_FAIL:
-            return { loading: false, error: action.payload };
-        default:
-            return state;
-    }
-}
-const productReviewSaveReducer = (state = {}, action) => {
-    switch (action.type) {
-        case PRODUCT_REVIEW_SAVE_REQUEST:
-            return { loading: true };
-        case PRODUCT_REVIEW_SAVE_SUCCESS:
-            return { loading: false, review: action.payload, success: true };
-        case PRODUCT_REVIEW_SAVE_FAIL:
-            return { loading: false, errror: action.payload };
-        case PRODUCT_REVIEW_SAVE_RESET:
+        case USER_LOGOUT:
             return {};
-        default:
-            return state;
+        default: return state;
+    }
+}
+
+const userUpdateReducer = (state = {}, action) => {
+    switch (action.type) {
+        case USER_UPDATE_REQUEST:
+            return { loading: true };
+        case USER_UPDATE_SUCCESS:
+            return { loading: false, userInfo: action.payload };
+        case USER_UPDATE_FAIL:
+            return { loading: false, error: action.payload };
+        default: return state;
+    }
+}
+
+const userRegisterReducer = (state = {}, action) => {
+    switch (action.type) {
+        case USER_REGISTER_REQUEST:
+            return { loading: true };
+        case USER_REGISTER_SUCCESS:
+            return { loading: false, userInfo: action.payload };
+        case USER_REGISTER_FAIL:
+            return { loading: false, error: action.payload };
+        default: return state;
     }
 }
 
 export {
-    productListReducer,
-    productDetailsReducer,
-    productSaveReducer,
-    productDeleteReducer,
-    productReviewSaveReducer,
-};
+    userSigninReducer, userRegisterReducer, userUpdateReducer
+}
